@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span id="check-for-updates"></span>
+</body>
+
+<script>
+    const { ipcRenderer } = require("electron")
+
+    ipcRenderer.on("cfu-data", (event, arg) => {
+        document.getElementById("check-for-updates").innerText = arg ? "need update" : "you up to date"
+    })
+
+    ipcRenderer.on("cfu-error", (event, arg) => {
+        console.log("err: ", arg)
+    })
+
+    ipcRenderer.send("check-for-updates")
+</script>
+
+</html>

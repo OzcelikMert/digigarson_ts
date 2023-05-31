@@ -1,0 +1,26 @@
+.categoryButton {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.categoryButton > button {
+    width: 48%;
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 8px;
+    font-size: 1.15rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 6px;
+    min-height: 55px;
+    border: none;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    cursor: pointer;
+    
+    word-wrap: break-word;
+    white-space: normal;
+    word-break: break-word;
+}

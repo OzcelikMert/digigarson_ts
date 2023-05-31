@@ -1,0 +1,90 @@
+.get-customer{
+    overflow-y: scroll;
+    height: 45vh;
+}
+.Home-tick {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #797979; 
+}
+::-webkit-scrollbar-thumb {
+  background: #FF0000; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #FF0000; 
+}
+.search-show-tick{
+    width: 60vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: white;
+}
+.search-show-tick>.searchtick{
+    background-color: #EC3C33;
+  }
+  .search-show-tick>.searchtick>table{
+    width: 59vw;
+  }
+  .search-show-tick>.showtick{
+    margin-top: 1vh;
+    height: 25vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .search-show-tick>.showtick>table{
+    width: 56vw;
+  }
+  .search-show-tick>.showtick>table>tbody>tr>th{
+    border: 1px solid;
+  }
+  .search-show-tick>.showtick>table>tbody>tr{
+    cursor: pointer;
+  }
+  .search-show-tick>.showtick>table>tbody>tr:hover{
+    background-color: rgb(79, 13, 13);
+  }
+  .search-show-tick>.showtick>table>thead{
+    background-color: #B92F27;
+    border-radius: 4px;
+  }
+  .search-show-tick>.showtick>table>thead>tr>th{
+    border: 1px solid;
+    word-wrap: break-word;
+    white-space: normal;
+    word-break:keep-all;
+  }
+  .customer-operations-tick{
+    width: 14vw;
+    color: white;
+    margin-right: 1vw;
+    margin-bottom: 1vh;
+    overflow: auto;
+    scrollbar-width: none !important;
+  }
+  .customer-operations-tick>button{
+    font-size: revert;
+    font-weight: 700;
+    width: 77%;
+    height: 6.9vh;
+    margin-bottom: 0.5vh;
+    border-radius: 8px;
+    background: rgb(255,171,0);
+    background: linear-gradient(90deg, rgba(255,171,0,1) 11%, rgba(185,47,39,1) 100%);
+  }
+  .customer-operations-tick>button:disabled{
+    background-color: grey;
+    background-image: none;
+  }
+  .telInput{
+    border-radius: 16px;
+  }

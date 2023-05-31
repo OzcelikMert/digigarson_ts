@@ -1,0 +1,238 @@
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #F5F5F5;
+  overflow-x: auto;
+}
+
+.collectionTable::-webkit-scrollbar {
+  width: 3.5px;
+  height: 6px;
+  background-color: #F5F5F5;
+  overflow-x: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #ff0000;
+  overflow-x: auto;
+}
+
+.checkout {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.checkout > div {
+    width: 33.33%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.checkout .middle {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout .middle > .table {
+    z-index: 0;
+    height: 25vh;
+}
+
+.checkout .middle > .calculator {
+    z-index: 1;
+    height: 36vh;
+    display: grid;
+    grid-template-columns: 4vw 4vw 4vw 4vw 4vw;
+    grid-gap: 2px;
+}
+
+.currentlypaying {
+    height: 15vh !important;
+}
+
+.calculator> .bottom {
+    background-color:  hsl(3, 81%, 46%);
+    color: white;
+}
+.discount {
+    grid-column: 1/4;
+}
+.split {
+    grid-column: 1/4;
+}
+.service {
+    grid-column: 4/6;
+}
+.print {
+    grid-column: 4/6;
+}
+
+.collectionTable {
+    height: 19vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.checkout > div > .product {
+    display: flex;
+    width: 100%;
+    height: 3.7vh;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #D40216;
+    color: white;
+    border-radius: 10px;
+}
+ 
+.table > .product {
+    display: flex;
+    width: 100%;
+    height: 3.7vh;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #D40216;
+    color: white;
+    border-radius: 10px;
+}
+
+.collectionTable > .product {
+    display: flex;
+    width: 100%;
+    height: 2.3rem;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #D40216;
+    color: white;
+    border-radius: 10px;
+}
+
+.product > div {
+    display: flex;
+    justify-content: center;
+}
+
+.product > div > span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    align-self: center;
+}
+
+.product > .amount {
+    height: 2.2rem;
+    width: 20%;
+}
+
+.product > .product {
+    height: 2.2rem;
+    width: 60%;
+}
+
+.product > .price {
+    height: 2.2rem;
+    width: 20%;
+}
+
+.list > .price {
+    height: 2.2rem;
+    border-left: 1px solid #FF0000;
+}
+
+.list > .amount {
+    border-right: 1px solid #FF0000;
+}
+
+.list {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #FF0000;
+}
+
+.upper {
+    display: flex;
+    flex-direction: row;
+    height: 25vh;
+}
+
+
+.calculator > div {
+    background-color: rgb(231, 94, 94);
+    justify-content: center;
+    align-items: center;
+    color: white; 
+    font-weight: bold;
+    text-align: center;
+}
+
+.calculator > div:hover {
+    background-color: crimson;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.calculator > .rightbuttons {
+    text-align: center;
+    color: white;
+    background-color:  hsl(3, 81%, 46%);
+    align-content: center;
+    cursor: pointer;
+    grid-column: 4 / 6;
+}
+
+
+
+.totals {
+    display: flex;
+    flex-direction: column;
+}
+
+.totals .total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.totals .total > div {
+    align-self: center;
+    justify-self: center;
+    font-size: 2.5vh;
+
+}
+
+.total .price {
+    font-size: 2.5vh;
+    font-weight: bold;
+    width: 40%;
+}
+
+.payment {
+    height: 75%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10vw 10vw;
+    grid-gap: 2px;
+}
+
+.payment > div {
+    text-align: center;
+    background-color: crimson;
+    color: white;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+
+.payment > div:hover {
+    background-color: rgb(172, 16, 47);
+    transition: 0.2s;
+    cursor: pointer;
+}

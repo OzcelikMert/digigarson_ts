@@ -1,0 +1,86 @@
+.get-abc{
+    overflow-y: scroll;
+    height: 45vh;
+}
+.Home-cost {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #797979; 
+}
+::-webkit-scrollbar-thumb {
+  background: #FF0000; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #FF0000; 
+}
+.show-all{
+    width: 60vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: white;
+}
+
+.show-all>.show-cost{
+margin-top: 1vh;
+height: 36vh;
+overflow-x: hidden;
+overflow-y: scroll;
+}
+.show-all>.show-cost>table{
+width: 56vw;
+}
+.show-all>.show-cost>table>tbody>tr>th{
+border: 1px solid;
+}
+.show-all>.show-cost>table>tbody>tr{
+cursor: pointer;
+}
+.show-all>.show-cost>table>tbody>tr:hover{
+background-color: rgb(79, 13, 13);
+}
+.show-all>.show-cost>table>thead{
+background-color: #B92F27;
+border-radius: 4px;
+}
+.show-all>.show-cost>table>thead>tr>th{
+border: 1px solid;
+word-wrap: break-word;
+white-space: normal;
+word-break:keep-all;
+}
+.company-operations-cost{
+text-align: center;
+width: 56vw;
+color: white;
+margin-right: 1vw;
+margin-bottom: 1vh;
+overflow: auto;
+scrollbar-width: none !important;
+}
+.company-operations-cost>button{
+font-size: x-large;
+font-weight: 700;
+width: 77%;
+height: 6.9vh;
+margin-bottom: 0.5vh;
+border-radius: 8px;
+background: rgb(255,171,0);
+background: linear-gradient(90deg, rgba(255,171,0,1) 11%, rgba(185,47,39,1) 100%);
+}
+.company-operations-cost>button:disabled{
+background-color: grey;
+background-image: none;
+}
+.telInput{
+border-radius: 16px;
+}

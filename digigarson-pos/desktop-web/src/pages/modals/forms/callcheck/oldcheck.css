@@ -1,0 +1,10 @@
+.oldCheckContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 38vh;
+    overflow-y: scroll;
+}
+.oldCheckContainer.no-overflow{
+    overflow: hidden;
+}

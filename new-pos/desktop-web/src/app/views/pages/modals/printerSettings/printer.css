@@ -1,0 +1,68 @@
+
+.savePrinterSettings {
+    background-color: red;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+.printerSettings{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}.printerSettings > section:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.6rem;
+    text-align:center;
+}.printerSettings > section:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    padding: 1.6rem;
+    overflow: auto;
+}.printerSettings > section:nth-child(2) article {
+    width: 35%;
+    margin-left: 12px;
+}.printerSettings > section:nth-child(2) article div {
+display: flex;
+flex-direction: column;
+margin: 4px;
+}.printerSettings > section:nth-child(2) article div .createPrinter {
+    display: flex;
+    flex-direction: row;
+    }
+.printerSettings > section:nth-child(2) > article > div select, input{
+    width: 100%;
+    height: 3vw;
+    font-size: large;
+    border: 1px solid black;
+    box-shadow: black;
+    margin: 2px;
+}
+#btnOlustur {
+    cursor: pointer;
+    background-color: rgb(160, 38, 7);
+    color: white;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    padding: 4px;
+}
+.PrinterTable{
+    width: 100%;}
+.PrinterTable thead{
+    width: 100%;
+}
+.PrinterTable thead tr,.PrinterTable tbody tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid black;
+    margin-bottom: 2px;
+}
+
+

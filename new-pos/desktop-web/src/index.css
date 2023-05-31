@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  noscript {
+    @apply w-full h-screen;
+    @apply flex items-center justify-center;
+  }
+
+  html,
+  body {
+    @apply w-full h-screen;
+  }
+
+  div#root {
+    @apply flex flex-col w-full h-full justify-center antialiased;
+  }
+
+  div#root div#layout {
+    @apply w-full h-full;
+    @apply flex;
+  }
+
+  .drag {
+    -webkit-app-region: drag;
+  }
+
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+}

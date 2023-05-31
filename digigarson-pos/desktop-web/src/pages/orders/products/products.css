@@ -1,0 +1,86 @@
+.productsContainer {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    flex-direction: row;
+    padding: px;
+    flex-flow: wrap;
+    overflow-y: scroll;
+    margin-top: 5px;
+}
+
+.productsContainer > div {
+    box-shadow: 0.255rem 0.255rem 1px rgba(0, 0, 0, 0.3);
+    margin: 0px 5px 10px 0px;
+    min-width: 28%;
+    width: 30%;
+    min-height: 11%;
+    height: 30%;
+    max-height: 19%;
+    background-color: #EC3C33;
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+    
+}
+
+.productsContainer > div > .productMiddle {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.productMiddle > .productName {
+    height: 12vh;
+    padding: 0.6rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    align-self: center;
+}
+
+.productMiddle > .productLeft {
+    height: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+    color: white;
+    background-color: #ce190f;
+}
+
+.productMiddle > .productPrice {
+    height: 3vh;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.808);
+    justify-content: center;
+    width: 100% !important;
+}
+
+.productsContainer > div > .productSpecial {
+    width: 15%;
+    background-color: rgba(0, 0, 0, 0.425);
+    writing-mode: vertical-lr;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.productsContainer > div > .productSpecial:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.productBox{
+    width: 31% !important;
+    height: 15vh !important;
+   
+}

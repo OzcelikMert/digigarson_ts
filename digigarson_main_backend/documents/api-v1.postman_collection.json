@@ -1,0 +1,678 @@
+{
+	"info": {
+		"_postman_id": "601f5aeb-850c-42fd-b30e-958d7b54fb43",
+		"name": "api/v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "Create Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Ev Yemekleri\",\r\n    \"image\":\"https://cdn.getiryemek.com/cuisines/1619220124730_480x300.jpeg\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/manager/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"manager",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All Category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/manager/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"manager",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Category By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Create Product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Adana Kebap\",\r\n    \"image\":\"https://cdn.getiryemek.com/cuisines/1619220124730_480x300.jpeg\",\r\n    \"category\":\"kebap-cesitleri\",\r\n    \"price\":{\r\n        \"amount\": 24.99,\r\n        \"currencyCode\":\"TL\"\r\n    }\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/manager/product",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"manager",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All Product",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/manager/product",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"manager",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Product By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Table",
+					"item": [
+						{
+							"name": "Create Table",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Adana Kebap\",\r\n    \"image\":\"https://cdn.getiryemek.com/cuisines/1619220124730_480x300.jpeg\",\r\n    \"category\":\"kebap-cesitleri\",\r\n    \"price\":{\r\n        \"amount\": 24.99,\r\n        \"currencyCode\":\"TL\"\r\n    }\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/manager/table",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"manager",
+										"table"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All Table",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/manager/table",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"manager",
+										"table"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Table By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Section",
+					"item": [
+						{
+							"name": "Create Section",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Adana Kebap\",\r\n    \"image\":\"https://cdn.getiryemek.com/cuisines/1619220124730_480x300.jpeg\",\r\n    \"category\":\"kebap-cesitleri\",\r\n    \"price\":{\r\n        \"amount\": 24.99,\r\n        \"currencyCode\":\"TL\"\r\n    }\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/manager/section",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"manager",
+										"section"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All Section",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/manager/section",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"manager",
+										"section"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Section By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Sign In",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var {accessToken, refreshToken} = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"accessToken\", accessToken);\r",
+									"pm.environment.set(\"refreshToken\", refreshToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"manager@branch.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/manager/signin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"manager",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Branch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/manager/mybranch",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"manager",
+								"mybranch"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Superadmin",
+			"item": [
+				{
+					"name": "Sign In",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var {accessToken, refreshToken} = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"accessToken\", accessToken);\r",
+									"pm.environment.set(\"refreshToken\", refreshToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@digigarson.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/superadmin/signin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"superadmin",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Regional Manager",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"testasxaaxtest@digigarson.com\",\r\n    \"password\":\"123456\",\r\n    \"name\":\"Meryem\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/superadmin/regionalmanager",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"superadmin",
+								"regionalmanager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Branch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"district\":\"Kahta\",\r\n    \"city\":\"Adıyaman\",\r\n    \"country\":\"Türkiye\",\r\n    \"address\":\"blablalbalbalblablababablabalbalbalblblabalbalbabaasakdssdasdasc\",\r\n    \"title\":\"Nar ekşili Sushi acısı bol\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/superadmin/branch",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"superadmin",
+								"branch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Branches",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/superadmin/branch",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"superadmin",
+								"branch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Branch By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/superadmin/branch/614db089285acb0db00227a2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"superadmin",
+								"branch",
+								"614db089285acb0db00227a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Branch Manager",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"tesrasdasda@meryempubbar.com\",\r\n    \"password\":\"123456\",\r\n    \"name\":\"Meryem Hanım\",\r\n    \"branchId\":\"614b527e08afda1658c7fb1e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/superadmin/branchmanager",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"superadmin",
+								"branchmanager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(responseHeaders['x-access-token'])\r",
+									"pm.environment.set(\"accessToken\", responseHeaders['x-access-token']);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/superadmin/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"superadmin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(responseHeaders['x-access-token'])\r",
+									"pm.environment.set(\"accessToken\", responseHeaders['x-access-token']);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/superadmin/users/614c771027530033ac50d113",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"superadmin",
+								"users",
+								"614c771027530033ac50d113"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "email",
+			"value": "email"
+		}
+	]
+}

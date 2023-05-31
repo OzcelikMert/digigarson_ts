@@ -1,0 +1,11 @@
+.oldTakeawayContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: inherit;
+    overflow-y: scroll;
+    background: white;
+}
+.oldTakeawayContainer.no-overflow{
+    overflow: hidden;
+}

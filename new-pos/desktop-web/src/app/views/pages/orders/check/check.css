@@ -1,0 +1,142 @@
+.adisyonContainer {
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row;
+    overflow: hidden;
+    width: 100%;
+}
+
+ 
+/*** Check Style***/
+
+td,
+th {
+    padding: 2px
+}
+
+.adisyonContainer>.tableContainer {
+    padding: 0.5rem;
+    width: 100%;
+    margin: 1px;
+    color: black;
+    display: block;
+}
+
+ .titleinfo {
+    padding: 8px;
+    border-radius: 8px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    background-color: #D40216 !important;
+}
+
+.adisyonContainer>.tableContainer>.Tablebox {
+    height: fit-content;
+    max-height: 59vh;
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+.adisyonContainer>.tableContainer>.Tablebox>.adisyonTable {
+    float: left;
+    background: white;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.adisyonContainer>.tableContainer>.Tablebox>.adisyonTable>thead>tr {
+
+}
+
+.titleinfo {
+    background-color: white !important;
+}
+
+.titleinfo th {}
+.adisyonContainer>.tableContainer>.Tablebox>.adisyonTable>tbody>tr {
+    border-collapse: collapse;
+    border-style: hidden;
+    font-size: 0.9rem;
+    font-weight: 500;
+    align-self: center;
+    border-bottom: 1px solid #FF0000 !important;
+}
+.adisyonContainer>.tableContainer>.Tablebox>.adisyonTable>tbody>tr> td{
+
+}
+.adisyonContainer>.tableContainer>.Tablebox>.adisyonTable .tableProductCount {
+    max-width: 10px;
+}
+
+
+/* Right Button Style */
+
+.adisyonContainer>.rightButtons {
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    float: right;
+    width: 35%;
+    margin: 1%;
+}
+
+.adisyonContainer>.rightButtons>button {
+    border-radius: 6px;
+    position: relative;
+    background-color: hsl(3, 81%, 46%);
+    color: white;
+    margin-bottom: 6px;
+    min-height: 55px;
+    height: auto;
+    border: none;
+}
+
+.adisyonContainer>.tableContainer>.buttonBottom {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.adisyonContainer>.tableContainer>.buttonBottom>button {
+    border: none;
+    margin: 0 auto;
+    border-radius: 4px;
+    text-align: center;
+    background-color: hsl(3, 81%, 46%);
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    width: 23%;
+    margin-top: 0.3vh;
+    margin-bottom: 0;
+    margin-left: 0.4vw;
+    margin-right: 0;
+    height: 9vh;
+    margin-bottom: 6px;
+}
+
+.adisyonContainer>.tableContainer>.buttonBottom>button:hover,
+.adisyonContainer>.rightButtons>button:hover {
+    background-color: hsla(3, 83%, 56%, 0.672);
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border-style: hidden;
+    /* hide standard table (collapsed) border */
+}
