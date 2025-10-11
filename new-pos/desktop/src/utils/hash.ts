@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+/*const crypto = require("crypto");
 const fs = require("original-fs")
 
 module.exports.checksum_file = (path) => {
@@ -9,4 +9,4 @@ module.exports.checksum_file = (path) => {
             .on("finish", () => resolve(hash.read()))
             .on("error", error => reject(error))
     })
-}
+}*/

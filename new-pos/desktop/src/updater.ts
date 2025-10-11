@@ -1,10 +1,10 @@
-const { app } = require("electron")
-const crypto = require("crypto")
-const fs = require("original-fs")
-const { default: axios } = require("axios")
-const { version } = require("./package.json")
+import app from "electron";
+import crypto from "crypto";
+import fs from "original-fs";
+import axios from "axios";
+import {version} from "../package.json"
 
-const server = module.exports.server = {
+/*const server = module.exports.server = {
     protocol: "http",
     host: "localhost",
     port: 3000
@@ -38,4 +38,4 @@ exports.downloadAsar = () => {
             .then(({ data }) => resolve((data.pipe(fs.createWriteStream(app.getAppPath())), true)))
             .catch(() => resolve(false))
     )
-}
+}*/
