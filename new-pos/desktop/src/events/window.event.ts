@@ -1,12 +1,12 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 
 export const initWindowEvent = (window: BrowserWindow) => {
-  ipcMain.on('maximize', () => window.maximize());
-  ipcMain.on('minimize', () => window.minimize());
-  ipcMain.on('exit', () => app.exit());
-  ipcMain.on('restart', () => (app.relaunch(), app.exit()));
+  ipcMain.handle('maximize', () => window.maximize());
+  ipcMain.handle('minimize', () => window.minimize());
+  ipcMain.handle('exit', () => app.exit());
+  ipcMain.handle('restart', () => (app.relaunch(), app.exit()));
   
-  ipcMain.on('zoom', (event, zoomDirection) => {
+  ipcMain.handle('zoom', (event, zoomDirection) => {
     var currentZoom = window.webContents.getZoomFactor();
     if (zoomDirection === "in") {
         window.webContents.zoomFactor = currentZoom + 0.2;
@@ -16,7 +16,7 @@ export const initWindowEvent = (window: BrowserWindow) => {
     }
   });
 
-  app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit();
+  ipcMain.on('changeURL', (event, path) => {
+    window.loadURL(path);
   });
 };

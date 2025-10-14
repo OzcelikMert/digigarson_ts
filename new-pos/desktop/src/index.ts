@@ -2,7 +2,8 @@ import config from 'config';
 import { app, BrowserWindow } from 'electron';
 //import {checkForUpdates, downloadAsar} from "./updater";
 import { initWindowEvent } from '@/events/window.event';
-import { initPrinterEvent } from '@/events/printer.event copy';
+import { initPrinterEvent } from '@/events/printer.event';
+import { initUserEvent } from './events/user.event';
 
 const url = config.get('url') as string;
 const runType = config.get('runType') as string;
@@ -17,6 +18,7 @@ app.whenReady().then(() => {
     frame: false,
     titleBarStyle: 'hidden',
     resizable: false,
+    center: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -32,8 +34,13 @@ app.whenReady().then(() => {
 
   initWindowEvent(window);
   initPrinterEvent(window);
+  initUserEvent(window);
 
   if (!app.isPackaged) return;
+
+  app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') app.quit();
+  });
 
   /*ipcMain.on('check-for-updates', (event) =>
     checkForUpdates().then((data) =>

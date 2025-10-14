@@ -6,12 +6,27 @@ import fs from 'fs';
 import { DraftUtil } from '@/utils/draft';
 
 export const initPrinterEvent = (window: BrowserWindow) => {
-  ipcMain.on(
-    'printers',
-    async (event) => { event.returnValue = await window.webContents.getPrintersAsync(); return event; }
+  ipcMain.handle(
+    'getPrinters',
+    async (event) => { 
+      const printers = await window.webContents.getPrintersAsync();
+      return printers;}
   );
 
-  ipcMain.on('print', (event, args) => {
+  ipcMain.handle(
+    'getPrinterSettings',
+    async (event) => { 
+      const printers = await window.webContents.getPrintersAsync();
+      return printers;}
+  );
+
+      ipcMain.handle(
+    'setPrinterSettings',
+    async (event) => {
+      return false;}
+  );
+
+  ipcMain.handle('print', (event, args) => {
     const jsonArgs = JSON.parse(args);
 
     let invoiceHeight = jsonArgs.settings.height;
@@ -42,7 +57,24 @@ export const initPrinterEvent = (window: BrowserWindow) => {
         await fs.unlink(dir, () => {
             del.deleteAsync(dir);
         });
+        return true;
+      }).catch((ptpErr) => {
+        console.error(ptpErr);
       });
     });
+
+    return false;
   });
+
+  ipcMain.handle(
+    'multiPrint',
+    async (event) => {
+      return false;}
+  );
+
+    ipcMain.handle(
+    'viewInvoice',
+    async (event) => {
+      return false;}
+  );
 };

@@ -5,13 +5,25 @@ const ptp = require("pdf-to-printer");
 const pdf = require("html-pdf");
 const del = require("del");
 const fs = require("fs");
+const si = require("systeminformation");
+const os = require("os");
+const crypto = require("crypto");
 const initWindowEvent = (window) => {
-  electron.ipcMain.on("maximize", () => window.maximize());
-  electron.ipcMain.on("minimize", () => window.minimize());
-  electron.ipcMain.on("exit", () => electron.app.exit());
-  electron.ipcMain.on("restart", () => (electron.app.relaunch(), electron.app.exit()));
-  electron.app.on("window-all-closed", () => {
-    if (process.platform !== "darwin") electron.app.quit();
+  electron.ipcMain.handle("maximize", () => window.maximize());
+  electron.ipcMain.handle("minimize", () => window.minimize());
+  electron.ipcMain.handle("exit", () => electron.app.exit());
+  electron.ipcMain.handle("restart", () => (electron.app.relaunch(), electron.app.exit()));
+  electron.ipcMain.handle("zoom", (event, zoomDirection) => {
+    var currentZoom = window.webContents.getZoomFactor();
+    if (zoomDirection === "in") {
+      window.webContents.zoomFactor = currentZoom + 0.2;
+    }
+    if (zoomDirection === "out") {
+      window.webContents.zoomFactor = currentZoom - 0.2;
+    }
+  });
+  electron.ipcMain.on("changeURL", (event, path) => {
+    window.loadURL(path);
   });
 };
 var InvoiceMainDraftVariables = /* @__PURE__ */ ((InvoiceMainDraftVariables2) => {
@@ -29,14 +41,27 @@ const DraftUtil = {
   getInvoiceMain
 };
 const initPrinterEvent = (window) => {
-  electron.ipcMain.on(
-    "printers",
+  electron.ipcMain.handle(
+    "getPrinters",
     async (event) => {
-      event.returnValue = await window.webContents.getPrintersAsync();
-      return event;
+      const printers = await window.webContents.getPrintersAsync();
+      return printers;
     }
   );
-  electron.ipcMain.on("print", (event, args) => {
+  electron.ipcMain.handle(
+    "getPrinterSettings",
+    async (event) => {
+      const printers = await window.webContents.getPrintersAsync();
+      return printers;
+    }
+  );
+  electron.ipcMain.handle(
+    "setPrinterSettings",
+    async (event) => {
+      return false;
+    }
+  );
+  electron.ipcMain.handle("print", (event, args) => {
     const jsonArgs = JSON.parse(args);
     let invoiceHeight = jsonArgs.settings.height;
     invoiceHeight = invoiceHeight ? invoiceHeight * 7 : 80;
@@ -61,8 +86,56 @@ const initPrinterEvent = (window) => {
         await fs.unlink(dir, () => {
           del.deleteAsync(dir);
         });
+        return true;
+      }).catch((ptpErr) => {
+        console.error(ptpErr);
       });
     });
+    return false;
+  });
+  electron.ipcMain.handle(
+    "multiPrint",
+    async (event) => {
+      return false;
+    }
+  );
+  electron.ipcMain.handle(
+    "viewInvoice",
+    async (event) => {
+      return false;
+    }
+  );
+};
+const getDeviceIds = async () => {
+  const system = await si.system();
+  const bios = await si.bios();
+  const osInfo = await si.osInfo();
+  const uuid = system?.uuid || bios?.serial || "";
+  const hostname = os.hostname();
+  const osIdRaw = uuid || `${osInfo.platform}|${osInfo.distro}|${osInfo.release}|${hostname}`;
+  const biosIdRaw = bios?.serial || `${bios?.vendor || ""}|${bios?.version || ""}|${bios?.releaseDate || ""}`;
+  return {
+    osIdRaw,
+    biosIdRaw,
+    system,
+    bios,
+    osInfo
+  };
+};
+const createDeviceHash = async () => {
+  const { osIdRaw, biosIdRaw } = await getDeviceIds();
+  const combined = `${osIdRaw}||${biosIdRaw}`;
+  const hash = crypto.createHash("sha256").update(combined).digest("hex");
+  return hash;
+};
+const SystemUtil = {
+  getDeviceIds,
+  createDeviceHash
+};
+const initUserEvent = (window) => {
+  electron.ipcMain.handle("getToken", async () => {
+    const token = await SystemUtil.createDeviceHash();
+    return token;
   });
 };
 const url = config.get("url");
@@ -77,6 +150,7 @@ electron.app.whenReady().then(() => {
     frame: false,
     titleBarStyle: "hidden",
     resizable: false,
+    center: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -89,6 +163,10 @@ electron.app.whenReady().then(() => {
   }
   initWindowEvent(window);
   initPrinterEvent(window);
+  initUserEvent();
   if (!electron.app.isPackaged) return;
+  electron.app.on("window-all-closed", () => {
+    if (process.platform !== "darwin") electron.app.quit();
+  });
 });
 //# sourceMappingURL=index.js.map

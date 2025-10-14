@@ -21,16 +21,17 @@
     "clean": "del dist"
   },
   "dependencies": {
-    "electron": "^38.2.2",
-    "electron-store": "^11.0.2",
     "axios": "^1.12.2",
     "config": "^4.1.1",
     "del": "^8.0.1",
+    "electron": "^38.2.2",
     "electron-pos-printer": "^1.3.8",
+    "electron-store": "^11.0.2",
     "html-pdf": "^3.0.1",
     "os-utils": "^0.0.14",
     "pdf-to-printer": "^5.6.1",
-    "sweetalert2": "^11.26.1"
+    "sweetalert2": "^11.26.1",
+    "systeminformation": "^5.27.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
