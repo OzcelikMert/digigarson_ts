@@ -1,5 +1,3 @@
-import { PrinterGroupTypes } from "@/constants/printerGroupTypes";
-
 type IPrinterModel = {
     cancelPrinterName: string;
     safePrinterName: string;
@@ -12,6 +10,8 @@ type IPrinterSettingsModel = {
     callerId: false;
     payyedPrint: false;
     cancelInvoice: false;
+    showUserName: boolean;
+    showQuantityName: boolean;
 }
 
 type IPrinterGroupModel = {

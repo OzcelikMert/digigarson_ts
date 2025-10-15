@@ -1,9 +1,16 @@
 import config from 'config';
 import { app, BrowserWindow } from 'electron';
+import '@/library/variable/array';
+import '@/library/variable/string';
+import '@/library/variable/number';
+import '@/library/variable/date';
+import '@/library/variable/math';
 //import {checkForUpdates, downloadAsar} from "./updater";
 import { initWindowEvent } from '@/events/window.event';
 import { initPrinterEvent } from '@/events/printer.event';
 import { initUserEvent } from './events/user.event';
+import { initCustomizeEvent } from './events/customize.event';
+
 
 const url = config.get('url') as string;
 const runType = config.get('runType') as string;
@@ -35,6 +42,7 @@ app.whenReady().then(() => {
   initWindowEvent(window);
   initPrinterEvent(window);
   initUserEvent(window);
+  initCustomizeEvent(window);
 
   if (!app.isPackaged) return;
 
