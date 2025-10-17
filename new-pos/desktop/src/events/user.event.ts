@@ -1,5 +1,5 @@
 import { UserService } from '@/services/user.service';
-import { SystemUtil } from '@/utils/system';
+import { SystemUtil } from '@/utils/system.util';
 import { app, BrowserWindow, ipcMain } from 'electron';
 
 export const initUserEvent = (window: BrowserWindow) => {

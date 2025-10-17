@@ -1,10 +1,6 @@
 import { BrowserWindow, ipcMain } from 'electron';
-import ptp from 'pdf-to-printer';
-import pdf from 'html-pdf';
-import del from 'del';
-import fs from 'fs';
-import { DraftUtil } from '@/utils/draft';
 import { PrinterService } from '@/services/printer.service';
+import { InvoiceUtil } from '@/utils/invoice.util';
 
 export const initPrinterEvent = (window: BrowserWindow) => {
   ipcMain.handle('getPrinters', async (event) => {
@@ -20,54 +16,48 @@ export const initPrinterEvent = (window: BrowserWindow) => {
     return PrinterService.update(value);
   });
 
-  ipcMain.handle('print', (event, args) => {
-    const jsonArgs = JSON.parse(args);
-
-    let invoiceHeight = jsonArgs.settings.height;
-    invoiceHeight = invoiceHeight ? invoiceHeight * 7 : 80;
-
-    const pdfOptions: pdf.CreateOptions = {
-      //win32: ['-print-settings "noscale"'],
-      type: 'pdf',
-      height: `${invoiceHeight}mm`,
-      width: '72mm',
-      renderDelay: 0,
-    };
-
-    const printOptions: ptp.PrintOptions = {
-      printer: jsonArgs.settings.printer,
-      scale: 'noscale',
-      //win32: ['-print-settings "noscale"'],
-    };
-
-    const invoiceHTML = DraftUtil.getInvoiceMain(
-      invoiceHeight,
-      jsonArgs.data.map((e: { value: string }) => e.value).join(''),
-    );
-
-    let dir = `./invoices/${Math.random()}.pdf`;
-
-    pdf.create(invoiceHTML, pdfOptions).toFile(dir, function (err, res) {
-      if (err) return console.log(err);
-      ptp
-        .print(dir, printOptions)
-        .then(async () => {
-          console.log(dir);
-          await fs.unlink(dir, () => {
-            del.deleteAsync(dir);
-          });
-          return true;
-        })
-        .catch((ptpErr) => {
-          console.error(ptpErr);
-        });
-    });
-
-    return false;
+  ipcMain.handle('print', async (event, args) => {
+    try {
+      console.log(args);
+      return await InvoiceUtil.print({
+        printerName: args.printerName,
+        height: args.data.height,
+        html: args.data.html,
+      });
+    } catch (error) {
+      console.error('Print handler error:', error);
+      return false;
+    }
   });
 
-  ipcMain.handle('multiPrint', async (event) => {
-    return false;
+  ipcMain.handle('multiPrint', async (event, args) => {
+    try {
+      const printItems = Array.isArray(args) ? args : [args];
+      const results = [];
+
+      for (const item of printItems) {
+        try {
+          const status = await InvoiceUtil.print({
+            printerName: item.printer,
+            height: item.height,
+            html: item.html,
+          });
+
+          results.push({ success: status, printer: item.settings.printer });
+        } catch (error) {
+          console.error('Multi-print item error:', error);
+          results.push({ success: false, printer: item.settings.printer, error: String(error) });
+        }
+      }
+
+      return {
+        success: results.every((r) => r.success),
+        results: results,
+      };
+    } catch (error) {
+      console.error('Multi-print handler error:', error);
+      return { success: false, error: String(error) };
+    }
   });
 
   ipcMain.handle('viewInvoice', async (event) => {

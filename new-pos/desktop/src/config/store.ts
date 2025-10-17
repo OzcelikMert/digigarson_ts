@@ -20,7 +20,7 @@ export const store = new Store<IStore>({
       groups: []
     },
     customize: {
-      triggerProductOptionModal: false,
+      triggerProductOptionModal: true,
       enableBarcodeSystem: false,
       enableNotifications: true,
     }
