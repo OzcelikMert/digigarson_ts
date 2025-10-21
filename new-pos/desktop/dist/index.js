@@ -391,7 +391,8 @@ const store = new Store({
         payyedPrint: false,
         cancelInvoice: false,
         showUserName: false,
-        showQuantityName: true
+        showQuantityName: true,
+        printPaymentInvoiceAfterPayment: true
       },
       groups: []
     },

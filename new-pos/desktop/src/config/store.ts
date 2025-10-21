@@ -16,6 +16,7 @@ export const store = new Store<IStore>({
         cancelInvoice: false,
         showUserName: false,
         showQuantityName: true,
+        printPaymentInvoiceAfterPayment: true
       },
       groups: []
     },

@@ -12,6 +12,7 @@ type IPrinterSettingsModel = {
     cancelInvoice: false;
     showUserName: boolean;
     showQuantityName: boolean;
+    printPaymentInvoiceAfterPayment: boolean;
 }
 
 type IPrinterGroupModel = {
