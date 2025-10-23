@@ -21,7 +21,8 @@ export const initPrinterEvent = (window: BrowserWindow) => {
       console.log(args);
       return await InvoiceUtil.print({
         printerName: args.printerName,
-        height: args.data.height,
+        height: args.data.height ?? 80,
+        width: args.data.width ?? 72,
         html: args.data.html,
       });
     } catch (error) {
@@ -38,15 +39,16 @@ export const initPrinterEvent = (window: BrowserWindow) => {
       for (const item of printItems) {
         try {
           const status = await InvoiceUtil.print({
-            printerName: item.printer,
-            height: item.height,
-            html: item.html,
+            printerName: item.printerName,
+            height: item.data.height ?? 80,
+            width: item.data.width ?? 72,
+            html: item.data.html,
           });
 
-          results.push({ success: status, printer: item.settings.printer });
+          results.push({ success: status, printer: item.printerName });
         } catch (error) {
           console.error('Multi-print item error:', error);
-          results.push({ success: false, printer: item.settings.printer, error: String(error) });
+          results.push({ success: false, printer: item.printerName, error: String(error) });
         }
       }
 

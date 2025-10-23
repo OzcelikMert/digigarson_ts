@@ -1,7 +1,4 @@
-<html
-  style="width: 72mm;height: {{height}}mm; overflow: hidden; overflow-y: scroll;"
-  lang="tr"
->
+<html style="width: 72mm;height: {{height}}mm; overflow: hidden; overflow-y: scroll;" lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -118,14 +115,34 @@
       .float-right {
         float: right !important;
       }
+      .border-xs {
+        border-width: 0.2mm !important;
+      }
+
+      .border-xm {
+        border-width: 0.5mm !important;
+      }
+
+      .border-xl {
+        border-width: 1mm !important;
+      }
+
+      .border-solid {
+        border-style: solid !important;
+      }
+
+      .border-bottom {
+        border-bottom: 0.2mm solid #000;
+      }
+
+      .border-top {
+        border-top: 0.2mm solid #000;
+      }
     </style>
     <title>Print</title>
   </head>
   <body>
-    <div
-      id="print"
-      style="width:72mm; height: {{height}}mm; background-color: #ffffff;"
-    >
+    <div id="print" style="width:72mm; height: {{height}}mm; background-color: #ffffff;">
       `; {{print}}
     </div>
   </body>

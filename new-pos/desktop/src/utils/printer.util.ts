@@ -3,7 +3,7 @@ import ptp from 'pdf-to-printer';
 const print = async (dir: string, printerName: string, height?: number) => {
   const options: ptp.PrintOptions = {
     printer: printerName,
-    scale: 'noscale',
+    scale: 'noscale'
   };
 
   try {

@@ -7,6 +7,9 @@ const create = async (params: IPDFCreateParamsUtil) => {
     height: params.height,
     width: params.width,
     renderDelay: 0,
+    border: '0',
+    quality: "100",
+    phantomArgs: ['--web-security=no', '--local-url-access=yes']
   };
 
   try {

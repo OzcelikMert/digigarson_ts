@@ -425,7 +425,10 @@ const create = async (params) => {
     type: "pdf",
     height: params.height,
     width: params.width,
-    renderDelay: 0
+    renderDelay: 0,
+    border: "0",
+    quality: "100",
+    phantomArgs: ["--web-security=no", "--local-url-access=yes"]
   };
   try {
     await new Promise((resolve, reject) => {
@@ -466,14 +469,12 @@ const PrinterUtil = {
   print: print$1
 };
 const print = async (params) => {
-  let invoiceHeight = params.height;
-  invoiceHeight = invoiceHeight ? invoiceHeight * 7 : 80;
   let dir = `./invoices/${Math.random()}.pdf`;
   const pdfStatus = await PDFUtil.create({
     dir,
     content: params.html,
-    width: "72mm",
-    height: `${invoiceHeight}mm`
+    width: `${params.width}mm`,
+    height: `${params.height}mm`
   });
   if (pdfStatus) {
     const printStatus = await PrinterUtil.print(dir, params.printerName);
@@ -503,7 +504,8 @@ const initPrinterEvent = (window) => {
       console.log(args);
       return await InvoiceUtil.print({
         printerName: args.printerName,
-        height: args.data.height,
+        height: args.data.height ?? 80,
+        width: args.data.width ?? 72,
         html: args.data.html
       });
     } catch (error) {
@@ -518,14 +520,15 @@ const initPrinterEvent = (window) => {
       for (const item of printItems) {
         try {
           const status = await InvoiceUtil.print({
-            printerName: item.printer,
-            height: item.height,
-            html: item.html
+            printerName: item.printerName,
+            height: item.data.height ?? 80,
+            width: item.data.width ?? 72,
+            html: item.data.html
           });
-          results.push({ success: status, printer: item.settings.printer });
+          results.push({ success: status, printer: item.printerName });
         } catch (error) {
           console.error("Multi-print item error:", error);
-          results.push({ success: false, printer: item.settings.printer, error: String(error) });
+          results.push({ success: false, printer: item.printerName, error: String(error) });
         }
       }
       return {
