@@ -5,8 +5,21 @@ import { InvoiceUtil } from '@/utils/invoice.util';
 export const initPrinterEvent = (window: BrowserWindow) => {
   ipcMain.handle('getPrinters', async (event) => {
     const printers = await window.webContents.getPrintersAsync();
+        // macOS'ta yazıcı listesi boşsa, PDF seçeneğini ekle
+    if (printers.length === 0 && process.platform === 'darwin') {
+      return [
+        {
+          name: 'Save as PDF',
+          displayName: 'Save as PDF',
+          description: 'Save to PDF file'
+        }
+      ];
+    }
+    
     return printers;
   });
+
+
 
   ipcMain.handle('getPrinterSettings', async (event) => {
     return PrinterService.get();

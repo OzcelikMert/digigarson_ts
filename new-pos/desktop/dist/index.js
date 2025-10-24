@@ -491,6 +491,15 @@ const InvoiceUtil = {
 const initPrinterEvent = (window) => {
   electron.ipcMain.handle("getPrinters", async (event) => {
     const printers = await window.webContents.getPrintersAsync();
+    if (printers.length === 0 && process.platform === "darwin") {
+      return [
+        {
+          name: "Save as PDF",
+          displayName: "Save as PDF",
+          description: "Save to PDF file"
+        }
+      ];
+    }
     return printers;
   });
   electron.ipcMain.handle("getPrinterSettings", async (event) => {
