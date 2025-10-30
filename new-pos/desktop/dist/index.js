@@ -469,7 +469,9 @@ const PrinterUtil = {
   print: print$1
 };
 const print = async (params) => {
-  let dir = `./invoices/${Math.random()}.pdf`;
+  const currentDate = /* @__PURE__ */ new Date();
+  const dateTimeString = currentDate.toISOString().replace(/:/g, "-");
+  let dir = `./invoices/${dateTimeString}-${Math.random()}.pdf`;
   const pdfStatus = await PDFUtil.create({
     dir,
     content: params.html,

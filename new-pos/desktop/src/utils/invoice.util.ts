@@ -3,7 +3,9 @@ import { PDFUtil } from './pdf.util';
 import { PrinterUtil } from './printer.util';
 
 const print = async (params: IInvoiceCreateParamsUtil) => {
-    let dir = `./invoices/${Math.random()}.pdf`;
+    const currentDate = new Date();
+    const dateTimeString = currentDate.toISOString().replace(/:/g, '-');
+    let dir = `./invoices/${dateTimeString}-${Math.random()}.pdf`;
 
     const pdfStatus = await PDFUtil.create({
         dir: dir, 
